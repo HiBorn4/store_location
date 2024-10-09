@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'store_card.dart'; // Import the Store and Product models
 import 'map_screen.dart'; // Import the new MapScreen to show store location
 
@@ -30,7 +31,8 @@ class StoreDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0), // Padding around the body content
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // Align content to the left
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // Align content to the left
           children: [
             // Display store name in a bold, large font
             Text(
@@ -44,7 +46,9 @@ class StoreDetailsScreen extends StatelessWidget {
             // Display store address
             Text(
               store.address,
-              style: TextStyle(color: Colors.grey[600], fontSize: 18), // Gray text with font size 18
+              style: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 18), // Gray text with font size 18
             ),
             const SizedBox(height: 8), // Add vertical spacing
             // Display store contact number
@@ -75,13 +79,17 @@ class StoreDetailsScreen extends StatelessWidget {
                 icon: const Icon(Icons.map), // Map icon
                 label: const Text('View on Map'), // Button text
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16), // Padding inside the button
-                  textStyle: const TextStyle(fontSize: 18), // Text style with font size 18
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 16), // Padding inside the button
+                  textStyle: const TextStyle(
+                      fontSize: 18), // Text style with font size 18
                 ),
               ),
             ),
 
-            const SizedBox(height: 16), // Vertical spacing before the description section
+            const SizedBox(
+                height: 16), // Vertical spacing before the description section
             // Display "Description" heading
             Text(
               'Description:',
@@ -96,7 +104,8 @@ class StoreDetailsScreen extends StatelessWidget {
               store.description,
               style: TextStyle(color: Colors.grey[700], fontSize: 18),
             ),
-            const SizedBox(height: 16), // Vertical spacing before the products section
+            const SizedBox(
+                height: 16), // Vertical spacing before the products section
             // Display "Available Products" heading
             Text(
               'Available Products:',
@@ -114,14 +123,18 @@ class StoreDetailsScreen extends StatelessWidget {
                   // Get each product from the store's product list
                   final product = store.products[index];
                   return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 4), // Card margin for each product
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 4), // Card margin for each product
                     child: ListTile(
                       title: Text(product.name), // Product name
-                      subtitle: Text('\$${product.price.toStringAsFixed(2)}'), // Product price
+                      subtitle: Text(
+                          '\$${product.price.toStringAsFixed(2)}'), // Product price
                       trailing: Icon(
                         // Check if the product is available and show an icon accordingly
                         product.isAvailable ? Icons.check_circle : Icons.cancel,
-                        color: product.isAvailable ? Colors.green : Colors.red, // Icon color based on availability
+                        color: product.isAvailable
+                            ? Colors.green
+                            : Colors.red, // Icon color based on availability
                       ),
                     ),
                   );
@@ -139,4 +152,3 @@ class StoreDetailsScreen extends StatelessWidget {
     // Add your logic here to launch the phone dialer
   }
 }
-

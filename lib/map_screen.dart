@@ -17,11 +17,14 @@ class MapScreen extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final screenHeight = mediaQuery.size.height; // Total screen height
     final appBarHeight = AppBar().preferredSize.height; // AppBar height
-    final statusBarHeight = mediaQuery.padding.top; // Height of the status bar (top padding)
-    final bottomPadding = mediaQuery.padding.bottom; // Padding at the bottom of the screen (e.g., for navigation bar)
+    final statusBarHeight =
+        mediaQuery.padding.top; // Height of the status bar (top padding)
+    final bottomPadding = mediaQuery.padding
+        .bottom; // Padding at the bottom of the screen (e.g., for navigation bar)
 
     // Calculate the available height for the map (total screen height minus the app bar, status bar, and bottom padding)
-    final mapHeight = screenHeight - appBarHeight - statusBarHeight - bottomPadding;
+    final mapHeight =
+        screenHeight - appBarHeight - statusBarHeight - bottomPadding;
 
     return Scaffold(
       appBar: AppBar(
@@ -43,8 +46,13 @@ class MapScreen extends StatelessWidget {
               children: [
                 // TileLayer is used to load and display map tiles from OpenStreetMap
                 TileLayer(
-                  urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  subdomains: const ['a', 'b', 'c'], // Subdomains for tile layer
+                  urlTemplate:
+                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  subdomains: const [
+                    'a',
+                    'b',
+                    'c'
+                  ], // Subdomains for tile layer
                 ),
                 // MarkerLayer to display a marker at the store's location
                 MarkerLayer(
@@ -52,7 +60,10 @@ class MapScreen extends StatelessWidget {
                     Marker(
                       width: 40.0, // Width of the marker
                       height: 40.0, // Height of the marker
-                      point: LatLng(store.latitude, store.longitude), // Position of the marker (store's coordinates)
+                      point: LatLng(
+                          store.latitude,
+                          store
+                              .longitude), // Position of the marker (store's coordinates)
                       // Custom marker widget, using an icon
                       child: const Icon(
                         Icons.location_on, // Location pin icon
@@ -67,15 +78,12 @@ class MapScreen extends StatelessWidget {
           ),
         ],
       ),
-      // FloatingActionButton for providing directions to the store
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Logic to get directions or open the location in an external map app will go here
-        },
+        onPressed: () {},
         tooltip: 'Get Directions', // Tooltip for the floating button
-        child: const Icon(Icons.directions), // Icon for the floating button (directions icon)
+        child: const Icon(
+            Icons.directions), // Icon for the floating button (directions icon)
       ),
     );
   }
 }
-

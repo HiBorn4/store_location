@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
+  flutter_phone_direct_caller: ^2.1.1
 
 dev_dependencies:
   flutter_test:
